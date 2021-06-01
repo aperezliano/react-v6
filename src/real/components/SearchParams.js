@@ -1,28 +1,39 @@
 import { useState, useEffect } from 'react';
+import { useBreedList } from '../hooks/userBreedList';
 import * as petService from '../services/pet_service';
-import Pet from './Pet';
+import Results from './Results';
 
-const ANIMALS = ['bird', 'cat', 'dog', 'pig', 'blah'];
+const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
 const SearchParams = () => {
   const [location, setLocation] = useState('');
-  const [animal, setAnimal] = useState('');
+  const [animal, setAnimal] = useState(ANIMALS[0]);
   const [breed, setBreed] = useState('');
   const [pets, setPets] = useState([]);
-  const breeds = [];
+  const [loadingPets, setLoadingPets] = useState(true);
+  const [breeds] = useBreedList(animal);
 
   useEffect(() => {
     requestPets();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function requestPets() {
-    const pets = await petService.requestPets();
+    setLoadingPets(true);
+    setPets([]);
+    const pets = await petService.requestPets(animal, location, breed);
     setPets(pets);
+    setLoadingPets(false);
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    requestPets();
   }
 
   return (
     <div className="search-params">
-      <form>
+      <form onSubmit={onSubmit}>
         <label htmlFor="location">Location</label>
         <input
           id="location"
@@ -58,9 +69,7 @@ const SearchParams = () => {
         </select>
         <button>Submit</button>
       </form>
-      {pets.map(({ name, animal, breed, id }) => (
-        <Pet name={name} animal={animal} breed={breed} key={id} />
-      ))}
+      {loadingPets ? <div>Loading...</div> : <Results pets={pets} />}
     </div>
   );
 };
