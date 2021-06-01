@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import * as petService from '../services/pet_service';
 import Pet from './Pet';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'pig', 'blah'];
@@ -15,11 +16,8 @@ const SearchParams = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPets() {
-    const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
-    );
-    const json = await res.json();
-    setPets(json.pets);
+    const pets = await petService.requestPets();
+    setPets(pets);
   }
 
   return (
