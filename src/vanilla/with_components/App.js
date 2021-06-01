@@ -1,3 +1,5 @@
+/* global React ReactDOM */
+
 const List = ({ type, text } = {}) =>
   React.createElement('div', { id: 'test-list' }, [
     React.createElement('h2', { key: 1, className: type }, text),
