@@ -6,8 +6,6 @@ const App = () => (
   <div id="main-app">
     <h1>JSX!</h1>
     <SearchParams />
-    <Pet animal="dog" breed="Shiba Inu" name="Percival" />
-    <Pet animal="dog" breed="Shiba Inu" name="Milo" />
   </div>
 );
 
