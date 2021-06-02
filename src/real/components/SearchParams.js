@@ -61,6 +61,7 @@ const SearchParams = () => {
           onChange={(e) => setBreed(e.target.value)}
           onBlur={(e) => setBreed(e.target.value)}
         >
+          <option label="All" value="" />
           {breeds.map((breed) => (
             <option key={breed} value={breed}>
               {breed}
