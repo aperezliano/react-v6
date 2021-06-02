@@ -5,7 +5,8 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "parcel src/real/index.html"
+    "dev": "parcel src/real/index.html",
+    "build": "parcel build src/real/index.html"
   },
   "repository": {
     "type": "git",
