@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useBreedList } from '../hooks/userBreedList';
 import * as petService from '../services/pet_service';
+
 import Results from '../components/Results';
+import ThemeContext from '../components/ThemeContext';
 
 const ANIMALS = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
 
@@ -12,6 +14,7 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
   const [loadingPets, setLoadingPets] = useState(true);
   const [breeds] = useBreedList(animal);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   useEffect(() => {
     requestPets();
@@ -68,7 +71,18 @@ const SearchParams = () => {
             </option>
           ))}
         </select>
-        <button>Submit</button>
+        <label htmlFor="theme">Theme</label>
+        <select
+          value={theme}
+          onChange={(e) => setTheme(e.target.value)}
+          onBlur={(e) => setTheme(e.target.value)}
+        >
+          <option value="darkblue">Dark Blue</option>
+          <option value="pink">Pink</option>
+          <option value="peru">Peru</option>
+          <option value="red">Red</option>
+        </select>
+        <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
       {loadingPets ? <div>Loading...</div> : <Results pets={pets} />}
     </div>

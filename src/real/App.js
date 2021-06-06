@@ -1,10 +1,10 @@
 import { render } from 'react-dom';
-import { StrictMode } from 'react';
+import { StrictMode, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import Details from './pages/Details';
 import SearchParams from './pages/SearchParams';
-import ErrorBoundary from './components/ErrorBoundary';
+import ThemeContext from './components/ThemeContext';
 
 /*
   A <Switch> looks through all its children <Route>
@@ -14,25 +14,32 @@ import ErrorBoundary from './components/ErrorBoundary';
   of them to render at a time
 */
 
-const App = () => (
-  <div id="main-app">
-    <Router>
-      <header>
-        <Link to="/">
-          <h1>JSX!</h1>
-        </Link>
-      </header>
-      <Switch>
-        <Route path="/details/:id">
-          <Details />
-        </Route>
-        <Route path="/">
-          <SearchParams />
-        </Route>
-      </Switch>
-    </Router>
-  </div>
-);
+const App = () => {
+  // Setting the theme inside the state (hook)
+  const themeHook = useState('darkblue');
+  return (
+    // Wrapping the whole app with the context provider so all the components get access to the theme
+    <ThemeContext.Provider value={themeHook}>
+      <div id="main-app">
+        <Router>
+          <header>
+            <Link to="/">
+              <h1>JSX!</h1>
+            </Link>
+          </header>
+          <Switch>
+            <Route path="/details/:id">
+              <Details />
+            </Route>
+            <Route path="/">
+              <SearchParams />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
+  );
+};
 
 // Using Strict Mode just for learning purposes
 render(
