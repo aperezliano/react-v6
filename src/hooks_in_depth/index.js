@@ -22,9 +22,9 @@ function App() {
       <hr />
       <Context />
       <hr />
-      {/* <Ref /> */}
+      <Ref />
       <hr />
-      {/* <Reducer /> */}
+      <Reducer />
       <hr />
       {/* <Memo /> */}
       <hr />
