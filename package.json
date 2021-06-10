@@ -6,6 +6,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/real/index.html",
+    "dev:hooks": "parcel src/hooks_in_depth/index.html",
     "build": "parcel build src/real/index.html"
   },
   "repository": {
