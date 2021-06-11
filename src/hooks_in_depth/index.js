@@ -26,9 +26,9 @@ function App() {
       <hr />
       <Reducer />
       <hr />
-      {/* <Memo /> */}
+      <Memo />
       <hr />
-      {/* <Callback /> */}
+      <Callback />
       <hr />
       {/* <LayoutEffect /> */}
       <hr />
