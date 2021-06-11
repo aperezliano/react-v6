@@ -30,11 +30,11 @@ function App() {
       <hr />
       <Callback />
       <hr />
-      {/* <LayoutEffect /> */}
+      <LayoutEffect />
       <hr />
-      {/* <ImperativeHandle /> */}
+      <ImperativeHandle />
       <hr />
-      {/* <DebugValue /> */}
+      <DebugValue />
     </div>
   );
 }

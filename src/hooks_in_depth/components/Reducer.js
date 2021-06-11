@@ -5,7 +5,7 @@
 import { useReducer } from 'react';
 
 const limitRGB = (num) => Math.abs(num) % 255;
-const step = 50;
+const STEP = 50;
 const ACTIONS = {
   incrementR: 'INCREMENT_R',
   decrementR: 'DECREMENT_R',
@@ -18,17 +18,17 @@ const ACTIONS = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.incrementR:
-      return { ...state, r: limitRGB(state.r + step) };
+      return { ...state, r: limitRGB(state.r + STEP) };
     case ACTIONS.decrementR:
-      return { ...state, r: limitRGB(state.r - step) };
+      return { ...state, r: limitRGB(state.r - STEP) };
     case ACTIONS.incrementG:
-      return { ...state, g: limitRGB(state.g + step) };
+      return { ...state, g: limitRGB(state.g + STEP) };
     case ACTIONS.decrementG:
-      return { ...state, g: limitRGB(state.g - step) };
+      return { ...state, g: limitRGB(state.g - STEP) };
     case ACTIONS.incrementB:
-      return { ...state, b: limitRGB(state.b + step) };
+      return { ...state, b: limitRGB(state.b + STEP) };
     case ACTIONS.decrementB:
-      return { ...state, b: limitRGB(state.b - step) };
+      return { ...state, b: limitRGB(state.b - STEP) };
     default:
       return state;
   }
