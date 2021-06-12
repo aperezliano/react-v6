@@ -5,9 +5,11 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "build": "parcel build src/real/index.html",
+    "clean": "rm -rf .cache dist",
     "dev": "parcel src/real/index.html",
     "dev:hooks": "parcel src/hooks_in_depth/index.html",
-    "build": "parcel build src/real/index.html"
+    "dev:tailwind": "parcel src/tailwind/index.html"
   },
   "repository": {
     "type": "git",
@@ -22,20 +24,25 @@
   "homepage": "https://github.com/aperezliano/react-v6#readme",
   "description": "",
   "devDependencies": {
-    "eslint": "7.27.0",
-    "eslint-config-prettier": "8.3.0"
-  },
-  "dependencies": {
     "@babel/core": "7.14.3",
     "@babel/eslint-parser": "7.13.4",
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/preset-env": "7.13.5",
     "@babel/preset-react": "7.13.13",
+    "autoprefixer": "9.8.6",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "parcel": "1.12.3",
+    "@tailwindcss/forms": "0.2.1",
+    "@tailwindcss/postcss7-compat": "2.0.3",
+    "eslint": "7.27.0",
+    "eslint-config-prettier": "8.3.0",
+    "postcss": "7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.0.3"
+  },
+  "dependencies": {
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0"
