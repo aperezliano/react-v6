@@ -7,7 +7,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "build": "parcel build src/real/index.html",
     "clean": "rm -rf .cache dist",
-    "dev": "parcel src/real/index.html",
+    "dev:real": "parcel src/real/index.html",
     "dev:hooks": "parcel src/hooks_in_depth/index.html",
     "dev:tailwind": "parcel src/tailwind/index.html"
   },

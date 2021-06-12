@@ -42,7 +42,7 @@ class Details extends Component {
     if (loading) return <div>Loading...</div>;
     if (!animal) throw new Error('No animal retrieved');
     return (
-      <div className="details">
+      <div className="bg-gray-50 w-10/12 mx-auto">
         <Carousel images={images} />
         <div>
           <h1>{name}</h1>
