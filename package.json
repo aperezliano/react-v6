@@ -9,7 +9,12 @@
     "clean": "rm -rf .cache dist",
     "dev:real": "parcel src/real/index.html",
     "dev:hooks": "parcel src/hooks_in_depth/index.html",
-    "dev:tailwind": "parcel src/tailwind/index.html"
+    "dev:tailwind": "parcel src/tailwind/index.html",
+    "dev:code_split": "parcel src/code_split/index.html",
+    "build:client": "parcel build --public-url ./dist/ src/server_side_render/index.html",
+    "build:server": "parcel build -d dist-server --target node src/server_side_render/server/index.js",
+    "build:server_render": "npm run build:client && npm run build:server",
+    "start:server_render": "npm -s run build:server_render && node dist-server/index.js"
   },
   "repository": {
     "type": "git",
@@ -29,20 +34,21 @@
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/preset-env": "7.13.5",
     "@babel/preset-react": "7.13.13",
+    "@tailwindcss/forms": "0.2.1",
+    "@tailwindcss/postcss7-compat": "2.0.3",
     "autoprefixer": "9.8.6",
+    "eslint": "7.27.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "parcel": "1.12.3",
-    "@tailwindcss/forms": "0.2.1",
-    "@tailwindcss/postcss7-compat": "2.0.3",
-    "eslint": "7.27.0",
-    "eslint-config-prettier": "8.3.0",
     "postcss": "7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.0.3"
   },
   "dependencies": {
+    "express": "4.17.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0"
