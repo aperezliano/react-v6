@@ -44,14 +44,15 @@ class Details extends Component {
     return (
       <div className="bg-gray-50 w-10/12 mx-auto">
         <Carousel images={images} />
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
+        <div className="text-center">
+          <h1 className="my-5 text-6xl">{name}</h1>
+          <h2 className="my-5 text-3xl">{`${animal} — ${breed} — ${city}, ${state}`}</h2>
           {/* Context looks weirder in Class components */}
           <ThemeContext.Consumer>
             {([theme]) => (
               <button
-                style={{ backgroundColor: theme }}
+                className="p-5"
+                style={{ backgroundColor: theme, color: 'white' }}
                 onClick={this.toggleModal}
               >
                 Adopt {name}

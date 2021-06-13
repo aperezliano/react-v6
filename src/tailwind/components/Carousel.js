@@ -21,18 +21,23 @@ class Carousel extends Component {
     const { images } = this.props;
 
     return (
-      <div className="flex justify-items-stretch items-center">
-        <img src={images[active]} alt="animal" className="flex-2" />
-        <div className="flex justify-center flex-grow flex-wrap">
+      <div className="flex content-around items-center">
+        <img
+          src={images[active]}
+          alt="animal"
+          className="w-2/6 m-10 rounded-md"
+        />
+        <div className="">
           {images.map((photo, i) => (
             // This should be a button :)
             // eslint-disable-next-line
             <img
               key={photo}
               src={photo}
-              className={
-                i === active ? 'active rounded-full w-32' : 'rounded-full w-32'
-              }
+              className={`rounded-full w-32 m-2 border-black border-2 ${
+                i === active ? 'active' : ''
+              }`}
+              style={{ display: 'inline-block' }}
               alt="active thumbnail"
               data-index={i}
               onClick={this.handleOnClick}
