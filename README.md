@@ -2,6 +2,8 @@
 
 https://btholt.github.io/complete-intro-to-react-v6/
 
+Turn me into a Monorepo, please... 🥺
+
 ## Vanilla
 
 Super basic React in html, just to understand where the magic comes from 🧙🏿‍♂️
