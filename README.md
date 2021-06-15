@@ -45,3 +45,9 @@ New scripts:
     "build:server_render": "npm run build:client && npm run build:server",
     "start:server_render": "npm -s run build && node dist-server/index.js",
 ```
+
+## Tyescript
+
+Migration of the "Real" app into TS
+
+Remember to run `npx tsc --init` to generate the **tsconfig.json** file

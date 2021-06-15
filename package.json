@@ -6,7 +6,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "build": "parcel build src/real/index.html",
-    "clean": "rm -rf .cache dist",
+    "clean": "rm -rf .cache dist node_modules",
     "dev:real": "parcel src/real/index.html",
     "dev:hooks": "parcel src/hooks_in_depth/index.html",
     "dev:tailwind": "parcel src/tailwind/index.html",
@@ -36,6 +36,9 @@
     "@babel/preset-react": "7.13.13",
     "@tailwindcss/forms": "0.2.1",
     "@tailwindcss/postcss7-compat": "2.0.3",
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.1",
+    "@types/react-router-dom": "5.1.7",
     "autoprefixer": "9.8.6",
     "eslint": "7.27.0",
     "eslint-config-prettier": "8.3.0",
@@ -45,12 +48,13 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "parcel": "1.12.3",
     "postcss": "7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.0.3"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.0.3",
+    "typescript": "4.2.2"
   },
   "dependencies": {
     "express": "4.17.1",
-    "react": "^17.0.2",
-    "react-dom": "17.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-router-dom": "5.2.0"
   },
   "browserslist": [

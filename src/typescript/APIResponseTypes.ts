@@ -1,0 +1,23 @@
+export type Animal = 'dog' | 'cat' | 'bird' | 'reptile' | 'rabbit';
+export interface Pet {
+  id: number;
+  name: string;
+  animal: Animal;
+  description: string;
+  breed: string;
+  images: string[];
+  state: string;
+  city: string;
+}
+export interface PetAPIResponse {
+  numberOfresults: number;
+  startIndex: number;
+  endIndex: number;
+  hasNext: boolean;
+  pets: Pet[];
+}
+
+export interface BreedListApiResponse {
+  animal: Animal;
+  Breeds: string[];
+}
