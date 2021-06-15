@@ -51,3 +51,7 @@ New scripts:
 Migration of the "Real" app into TS
 
 Remember to run `npx tsc --init` to generate the **tsconfig.json** file
+
+## Redux
+
+"Real" App with Redux
